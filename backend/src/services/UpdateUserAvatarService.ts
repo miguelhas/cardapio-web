@@ -9,7 +9,9 @@ interface Request {
   user_id: string;
   avatarFilename: string;
 }
-
+/**
+ * @class UpdateUserAvatarService usada no update para UserAvatarService
+ */
 class UpdateUserAvatarService {
   public async execute({user_id, avatarFilename}: Request): Promise<User>{
     const usersRepository = getRepository(User);
@@ -21,18 +23,23 @@ class UpdateUserAvatarService {
     }
 
     if(user.avatar){
-      //deletar avatar anterior 0- verificar se ele já tinha avatar.
-      //buscar pelo  arquivo de avatar do usuario
+      /**
+       * @description
+       * deletar avatar anterior 0- verificar se ele já tinha avatar.
+       * buscar pelo  arquivo de avatar do usuario
+       */
       const userAvatarFilePath = path.join(uploadConfig.directory, user.avatar);
       const userAvatarFileExists = await fs.promises.stat(userAvatarFilePath);
-      //verifica se existe e deleta.
+      /**
+       * @description
+       * verifica se existe e deleta.
+       */
       if(userAvatarFileExists){
         await fs.promises.unlink(userAvatarFilePath);
       }
     }
 
     user.avatar = avatarFilename;
-
     await usersRepository.save(user);
     return user;
   }

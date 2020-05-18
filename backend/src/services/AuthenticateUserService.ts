@@ -14,7 +14,11 @@ interface Response{
   user: User;
   token: string;
 }
-
+/**
+ * @class AuthenticateUserService usada para autenticação de usuário
+ * user.password - senha criptografada
+ * password - senha nao criptografada
+ */
 class AuthenticateUserService {
   public async execute({email, password}: Request): Promise<Response>{
     const usersRepository = getRepository(User);
@@ -38,7 +42,9 @@ class AuthenticateUserService {
       subject: user.id,
       expiresIn,
     });
-    //se chegou até aqui, ele tá autenticado.
+    /**
+     * @description se chegou até aqui(return), ele está autenticado.
+     */
     return {
       user,
       token,

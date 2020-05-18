@@ -3,13 +3,20 @@ import { verify } from 'jsonwebtoken';
 import authConfig from '../config/auth';
 import AppError from '../errors/AppError';
 
-
+/**
+ * @interface Informações de autenticação
+ */
 interface TokenPayload{
   iat: number;
   exp: number;
   sub: string;
 }
-
+/**
+ * 
+ * @param request 
+ * @param response 
+ * @param next 
+ */
 export default function ensureAuthenticated(request: Request, response: Response, next: NextFunction): void{
   //validação do token.
   const authHeader = request.headers.authorization;

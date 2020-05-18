@@ -2,7 +2,9 @@ import { Router } from 'express';
 import AuthenticateUserService from '../services/AuthenticateUserService';
 
 const sessionsRouter = Router();
-
+/**
+ * @description Rotas de autenticação de login (sessionsRouter)
+ */
 sessionsRouter.post('/', async (request, response) => {
   const { email, password } = request.body;
   const authenticateUser = new AuthenticateUserService();

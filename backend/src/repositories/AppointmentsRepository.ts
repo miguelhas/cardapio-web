@@ -1,7 +1,9 @@
 import {EntityRepository,  Repository} from 'typeorm';
 
 import Appointment from '../models/Appointment';
-
+/**
+ * @class AppointmentsRepository EXTENDS da Repository PARA entidade EntityRepository
+ */
 @EntityRepository(Appointment)
 class AppointmentsRepository extends Repository<Appointment> {
   public async findByDate(date: Date): Promise<Appointment | null> {

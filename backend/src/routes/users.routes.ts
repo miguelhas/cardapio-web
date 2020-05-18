@@ -7,7 +7,9 @@ import ensureAuthenticated from '../middlewares/ensureAuthenticated';
 
 const usersRouter = Router();
 const upload = multer(uploadConfig);
-
+/**
+ * @description Rotas de autenticação de login (userRouter)
+ */
 usersRouter.post('/', async (request, response) => {
   const { name, email, password, phone, address } = request.body;
   const createUser = new CreateUserService();

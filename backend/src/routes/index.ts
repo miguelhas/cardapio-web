@@ -5,7 +5,9 @@ import usersRouter from './users.routes';
 import sessionsRouter from './sessions.routes';
 
 const routes = Router();
-
+/**
+ * @description apontamento de classes 'rotas'
+ */
 routes.use('/appointments', appointmentsRouter);
 routes.use('/users', usersRouter);
 routes.use('/sessions', sessionsRouter);

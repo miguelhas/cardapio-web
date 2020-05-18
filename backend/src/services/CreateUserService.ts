@@ -10,7 +10,9 @@ interface Request {
   address: string;
   password: string;
 }
-
+/**
+ * @class CreateUserService Classe construtora
+ */
 class CreateUserService {
  public async execute({name, email, phone, address, password}: Request): Promise<User> {
     const usersRepository = getRepository(User);

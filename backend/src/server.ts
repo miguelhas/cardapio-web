@@ -11,6 +11,10 @@ import AppError from './errors/AppError';
 
 import './database';
 
+/**
+ * @description Classe raiz server
+ */
+
 const app = express();
 
 app.use(cors());

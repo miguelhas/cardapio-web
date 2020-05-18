@@ -1,5 +1,7 @@
 import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, UpdateDateColumn} from 'typeorm';
-
+/**
+ * @class users para entidade de Usuários(users)
+ */
 @Entity('users')
 class User {
   @PrimaryGeneratedColumn('uuid')
